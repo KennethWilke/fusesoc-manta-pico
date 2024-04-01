@@ -1,0 +1,7 @@
+set_io clk 35
+set_io tx 25
+set_io rx 27
+set_io r_n 41
+set_io g_n 39
+set_io b_n 40
+set_io sw2 10

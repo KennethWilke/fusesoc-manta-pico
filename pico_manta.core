@@ -1,0 +1,28 @@
+CAPI=2:
+name: kwilke:experiments:manta-pico:1.0.0
+description: This is an experimental repo for tinkering Manta on my Pico-Ice
+
+filesets:
+  rtl:
+    files:
+      - top.sv
+      - manta.v
+    file_type: systemVerilogSource
+
+  pico_ice:
+    files:
+      - pinout.pcf : {file_type : PCF}
+
+targets:
+  default: &default
+    filesets:
+      - rtl
+  pico_ice:
+    default_tool : icestorm
+    description : tinyVision.ai Pico-Ice OSHW Board
+    filesets : [rtl, pico_ice]
+    tools:
+      icestorm:
+        nextpnr_options : [--up5k]
+        pnr: next
+    toplevel : top
